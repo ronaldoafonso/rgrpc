@@ -1,0 +1,7 @@
+.ash_history
+.bash_history
+.cache/
+.local/
+.python_history
+__pycache__
+

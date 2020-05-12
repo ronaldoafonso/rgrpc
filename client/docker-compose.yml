@@ -1,0 +1,19 @@
+---
+version: '3.7'
+
+services:
+  productinfoclient:
+    build:
+      context: .
+    image: productinfoclient:0.0.1
+    volumes:
+      - type: bind
+        source: .
+        target: /home/productinfoclient
+    networks:
+       - grpcnet
+
+networks:
+  grpcnet:
+    name: grpcnet
+...
