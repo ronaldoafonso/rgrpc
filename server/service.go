@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	pb "github.com/ronaldoafonso/productinfo/productpb"
+	"log"
 	"strconv"
 )
 
@@ -29,6 +30,16 @@ func (s *ProductInfoServer) GetProduct(ctx context.Context, in *pb.ProductID) (*
 		return product, nil
 	}
 	return nil, errors.New("Product does not exist.")
+}
+
+func (s *ProductInfoServer) GetAllProducts(empty *pb.Empty, stream pb.ProductInfo_GetAllProductsServer) error {
+	for key, value := range s.products {
+		if err := stream.Send(value); err != nil {
+			log.Printf("Error getting product: %v (%v).", key, err)
+			return err
+		}
+	}
+	return nil
 }
 
 func NewProductInfoServer() *ProductInfoServer {

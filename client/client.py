@@ -15,17 +15,26 @@ def run():
     channel = grpc.insecure_channel('server_productinfo_1:50051')
     stub = pbgrpc.ProductInfoStub(channel)
 
+    # Add products and get them one at a time
     for product in products:
         p = pb.Product(name=product["name"],
                        description=product["description"],
                        price=product["price"])
         response = stub.addProduct(p)
-        print("Added {0}- Response: {1}".format(product["name"], response))
+        print("Added {0} - Response: {1}".format(product["name"], response))
 
         productID = pb.ProductID(value=response.value)
         productInfo = stub.getProduct(productID)
         print("Get productID: {0}".format(productInfo))
 
+    # Get all products
+    print("Get All Products")
+    for product in stub.getAllProducts(pb.Empty()):
+        print("-----------------------")
+        print("ID: {0}.".format(product.id))
+        print("Name: {0}.".format(product.name))
+        print("Desc: {0}.".format(product.description))
+        print("Price: {0}.".format(product.price))
 
 if __name__ == '__main__':
     run()

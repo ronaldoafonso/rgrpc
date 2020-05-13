@@ -17,6 +17,7 @@ services:
         mode: host
     networks:
        - grpcnet
+    command: ["/bin/sh", "-c", "while :; do sleep 10; done"]
 
 networks:
   grpcnet:

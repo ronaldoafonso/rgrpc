@@ -23,5 +23,3 @@ WORKDIR /go/src/github.com/ronaldoafonso/productinfo
 USER productinfo:productinfo
 
 COPY --chown=productinfo:productinfo . /go/src/github.com/ronaldoafonso/productinfo/
-
-CMD ["/bin/sh", "-c", "while :; do sleep 10; done"]
