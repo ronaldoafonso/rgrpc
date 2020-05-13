@@ -6,19 +6,25 @@ import productpb.product_pb2 as pb
 import productpb.product_pb2_grpc as pbgrpc
 
 
+products = [
+    {"name": "Product 1", "description": "Desc Product 1", "price": 1.0},
+    {"name": "Product 2", "description": "Desc Product 2", "price": 2.0}
+]
+
 def run():
     channel = grpc.insecure_channel('server_productinfo_1:50051')
     stub = pbgrpc.ProductInfoStub(channel)
 
-    product1 = pb.Product(name = "Product 1",
-                          description = "Desc Product 1",
-                          price = 1.0)
-    response = stub.addProduct(product1)
-    print("Added product1 - Response:", response)
+    for product in products:
+        p = pb.Product(name=product["name"],
+                       description=product["description"],
+                       price=product["price"])
+        response = stub.addProduct(p)
+        print("Added {0}- Response: {1}".format(product["name"], response))
 
-    productID1 = pb.ProductID(value = response.value)
-    productInfo = stub.getProduct(productID1)
-    print("Get productID1: ", productInfo)
+        productID = pb.ProductID(value=response.value)
+        productInfo = stub.getProduct(productID)
+        print("Get productID: {0}".format(productInfo))
 
 
 if __name__ == '__main__':

@@ -4,6 +4,11 @@ import (
 	"context"
 	"errors"
 	pb "github.com/ronaldoafonso/productinfo/productpb"
+	"strconv"
+)
+
+var (
+	ids int
 )
 
 type ProductInfoServer struct {
@@ -11,7 +16,8 @@ type ProductInfoServer struct {
 }
 
 func (s *ProductInfoServer) AddProduct(ctx context.Context, in *pb.Product) (*pb.ProductID, error) {
-	in.Id = "id1"
+	ids++
+	in.Id = "id" + strconv.Itoa(ids)
 	s.products[in.Id] = in
 	return &pb.ProductID{
 		Value: in.Id,
