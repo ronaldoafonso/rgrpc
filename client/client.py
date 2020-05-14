@@ -27,10 +27,26 @@ def run():
         productInfo = stub.getProduct(productID)
         print("Get productID: {0}".format(productInfo))
 
+    # Add some more products
+    def sendProducts():
+        products = [
+            {"name": "Product 3", "description": "Desc Product 3", "price": 3.0},
+            {"name": "Product 4", "description": "Desc Product 4", "price": 4.0}
+        ]
+        for product in products:
+            yield pb.Product(name=product["name"],
+                             description=product["description"],
+                             price=product["price"])
+
+    productIDs = stub.addAllProducts(sendProducts())
+    print("-----------------------")
+    for productID in productIDs.productIDs:
+        print("ID: {0}.".format(productID.value))
+
     # Get all products
+    print("-----------------------")
     print("Get All Products")
     for product in stub.getAllProducts(pb.Empty()):
-        print("-----------------------")
         print("ID: {0}.".format(product.id))
         print("Name: {0}.".format(product.name))
         print("Desc: {0}.".format(product.description))

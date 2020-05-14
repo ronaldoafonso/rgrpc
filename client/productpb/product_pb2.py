@@ -18,7 +18,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='productpb',
   syntax='proto3',
   serialized_options=b'Z.github.com/ronaldoafonso/productinfo/productpb',
-  serialized_pb=b'\n\x17productpb/product.proto\x12\tproductpb\"\x1a\n\tProductID\x12\r\n\x05value\x18\x01 \x01(\t\"G\n\x07Product\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\r\n\x05price\x18\x04 \x01(\x02\"\x07\n\x05\x45mpty2\xbd\x01\n\x0bProductInfo\x12\x38\n\naddProduct\x12\x12.productpb.Product\x1a\x14.productpb.ProductID\"\x00\x12\x38\n\ngetProduct\x12\x14.productpb.ProductID\x1a\x12.productpb.Product\"\x00\x12:\n\x0egetAllProducts\x12\x10.productpb.Empty\x1a\x12.productpb.Product\"\x00\x30\x01\x42\x30Z.github.com/ronaldoafonso/productinfo/productpbb\x06proto3'
+  serialized_pb=b'\n\x17productpb/product.proto\x12\tproductpb\"\x1a\n\tProductID\x12\r\n\x05value\x18\x01 \x01(\t\"G\n\x07Product\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\r\n\x05price\x18\x04 \x01(\x02\"6\n\nProductIDs\x12(\n\nproductIDs\x18\x01 \x03(\x0b\x32\x14.productpb.ProductID\"\x07\n\x05\x45mpty2\xfe\x01\n\x0bProductInfo\x12\x38\n\naddProduct\x12\x12.productpb.Product\x1a\x14.productpb.ProductID\"\x00\x12\x38\n\ngetProduct\x12\x14.productpb.ProductID\x1a\x12.productpb.Product\"\x00\x12?\n\x0e\x61\x64\x64\x41llProducts\x12\x12.productpb.Product\x1a\x15.productpb.ProductIDs\"\x00(\x01\x12:\n\x0egetAllProducts\x12\x10.productpb.Empty\x1a\x12.productpb.Product\"\x00\x30\x01\x42\x30Z.github.com/ronaldoafonso/productinfo/productpbb\x06proto3'
 )
 
 
@@ -107,6 +107,37 @@ _PRODUCT = _descriptor.Descriptor(
 )
 
 
+_PRODUCTIDS = _descriptor.Descriptor(
+  name='ProductIDs',
+  full_name='productpb.ProductIDs',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='productIDs', full_name='productpb.ProductIDs.productIDs', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=139,
+  serialized_end=193,
+)
+
+
 _EMPTY = _descriptor.Descriptor(
   name='Empty',
   full_name='productpb.Empty',
@@ -126,12 +157,14 @@ _EMPTY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=139,
-  serialized_end=146,
+  serialized_start=195,
+  serialized_end=202,
 )
 
+_PRODUCTIDS.fields_by_name['productIDs'].message_type = _PRODUCTID
 DESCRIPTOR.message_types_by_name['ProductID'] = _PRODUCTID
 DESCRIPTOR.message_types_by_name['Product'] = _PRODUCT
+DESCRIPTOR.message_types_by_name['ProductIDs'] = _PRODUCTIDS
 DESCRIPTOR.message_types_by_name['Empty'] = _EMPTY
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -149,6 +182,13 @@ Product = _reflection.GeneratedProtocolMessageType('Product', (_message.Message,
   })
 _sym_db.RegisterMessage(Product)
 
+ProductIDs = _reflection.GeneratedProtocolMessageType('ProductIDs', (_message.Message,), {
+  'DESCRIPTOR' : _PRODUCTIDS,
+  '__module__' : 'productpb.product_pb2'
+  # @@protoc_insertion_point(class_scope:productpb.ProductIDs)
+  })
+_sym_db.RegisterMessage(ProductIDs)
+
 Empty = _reflection.GeneratedProtocolMessageType('Empty', (_message.Message,), {
   'DESCRIPTOR' : _EMPTY,
   '__module__' : 'productpb.product_pb2'
@@ -165,8 +205,8 @@ _PRODUCTINFO = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=149,
-  serialized_end=338,
+  serialized_start=205,
+  serialized_end=459,
   methods=[
   _descriptor.MethodDescriptor(
     name='addProduct',
@@ -187,9 +227,18 @@ _PRODUCTINFO = _descriptor.ServiceDescriptor(
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
+    name='addAllProducts',
+    full_name='productpb.ProductInfo.addAllProducts',
+    index=2,
+    containing_service=None,
+    input_type=_PRODUCT,
+    output_type=_PRODUCTIDS,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
     name='getAllProducts',
     full_name='productpb.ProductInfo.getAllProducts',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=_EMPTY,
     output_type=_PRODUCT,

@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	pb "github.com/ronaldoafonso/productinfo/productpb"
+	"io"
 	"log"
 	"strconv"
 )
@@ -30,6 +31,25 @@ func (s *ProductInfoServer) GetProduct(ctx context.Context, in *pb.ProductID) (*
 		return product, nil
 	}
 	return nil, errors.New("Product does not exist.")
+}
+
+func (s *ProductInfoServer) AddAllProducts(stream pb.ProductInfo_AddAllProductsServer) error {
+	productIDs := []*pb.ProductID{}
+	for {
+		if product, err := stream.Recv(); err != nil {
+			if err == io.EOF {
+				break
+			} else {
+				return err
+			}
+		} else {
+			ids++
+			product.Id = "id" + strconv.Itoa(ids)
+			s.products[product.Id] = product
+			productIDs = append(productIDs, &pb.ProductID{Value: product.Id})
+		}
+	}
+	return stream.SendAndClose(&pb.ProductIDs{ProductIDs: productIDs})
 }
 
 func (s *ProductInfoServer) GetAllProducts(empty *pb.Empty, stream pb.ProductInfo_GetAllProductsServer) error {

@@ -6,15 +6,33 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/a3c87ab5/
+AddAllProducts	productpb/product.pb.go	/^	AddAllProducts(ProductInfo_AddAllProductsServer) error$/;"	n	interface:productpb.ProductInfoServer	typeref:typename:error
+AddAllProducts	productpb/product.pb.go	/^	AddAllProducts(ctx context.Context, opts ...grpc.CallOption) (ProductInfo_AddAllProductsClient,/;"	n	interface:productpb.ProductInfoClient	typeref:typename:(ProductInfo_AddAllProductsClient, error)
+AddAllProducts	productpb/product.pb.go	/^func (*UnimplementedProductInfoServer) AddAllProducts(ProductInfo_AddAllProductsServer) error {$/;"	f	struct:productpb.UnimplementedProductInfoServer	typeref:typename:error
+AddAllProducts	productpb/product.pb.go	/^func (c *productInfoClient) AddAllProducts(ctx context.Context, opts ...grpc.CallOption) (Produc/;"	f	struct:productpb.productInfoClient	typeref:typename:(ProductInfo_AddAllProductsClient, error)
+AddAllProducts	service.go	/^func (s *ProductInfoServer) AddAllProducts(stream pb.ProductInfo_AddAllProductsServer) error {$/;"	f	struct:main.ProductInfoServer	typeref:typename:error
 AddProduct	productpb/product.pb.go	/^	AddProduct(context.Context, *Product) (*ProductID, error)$/;"	n	interface:productpb.ProductInfoServer	typeref:typename:(*ProductID, error)
 AddProduct	productpb/product.pb.go	/^	AddProduct(ctx context.Context, in *Product, opts ...grpc.CallOption) (*ProductID, error)$/;"	n	interface:productpb.ProductInfoClient	typeref:typename:(*ProductID, error)
 AddProduct	productpb/product.pb.go	/^func (*UnimplementedProductInfoServer) AddProduct(context.Context, *Product) (*ProductID, error)/;"	f	struct:productpb.UnimplementedProductInfoServer	typeref:typename:(*ProductID, error)
 AddProduct	productpb/product.pb.go	/^func (c *productInfoClient) AddProduct(ctx context.Context, in *Product, opts ...grpc.CallOption/;"	f	struct:productpb.productInfoClient	typeref:typename:(*ProductID, error)
 AddProduct	service.go	/^func (s *ProductInfoServer) AddProduct(ctx context.Context, in *pb.Product) (*pb.ProductID, erro/;"	f	struct:main.ProductInfoServer	typeref:typename:(*pb.ProductID, error)
+ClientStream	productpb/product.pb.go	/^	grpc.ClientStream$/;"	M	struct:productpb.productInfoAddAllProductsClient	typeref:typename:grpc.ClientStream
+ClientStream	productpb/product.pb.go	/^	grpc.ClientStream$/;"	M	struct:productpb.productInfoGetAllProductsClient	typeref:typename:grpc.ClientStream
+CloseAndRecv	productpb/product.pb.go	/^	CloseAndRecv() (*ProductIDs, error)$/;"	n	interface:productpb.ProductInfo_AddAllProductsClient	typeref:typename:(*ProductIDs, error)
+CloseAndRecv	productpb/product.pb.go	/^func (x *productInfoAddAllProductsClient) CloseAndRecv() (*ProductIDs, error) {$/;"	f	struct:productpb.productInfoAddAllProductsClient	typeref:typename:(*ProductIDs, error)
 Description	productpb/product.pb.go	/^	Description string  `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty/;"	m	struct:productpb.Product	typeref:typename:string
+Descriptor	productpb/product.pb.go	/^func (*Empty) Descriptor() ([]byte, []int) {$/;"	f	struct:productpb.Empty	typeref:typename:([]byte, []int)
 Descriptor	productpb/product.pb.go	/^func (*Product) Descriptor() ([]byte, []int) {$/;"	f	struct:productpb.Product	typeref:typename:([]byte, []int)
 Descriptor	productpb/product.pb.go	/^func (*ProductID) Descriptor() ([]byte, []int) {$/;"	f	struct:productpb.ProductID	typeref:typename:([]byte, []int)
+Descriptor	productpb/product.pb.go	/^func (*ProductIDs) Descriptor() ([]byte, []int) {$/;"	f	struct:productpb.ProductIDs	typeref:typename:([]byte, []int)
+Empty	productpb/product.pb.go	/^type Empty struct {$/;"	s	package:productpb
+Empty	productpb/product.proto	/^message Empty {}$/;"	m
 File_productpb_product_proto	productpb/product.pb.go	/^var File_productpb_product_proto protoreflect.FileDescriptor$/;"	v	package:productpb	typeref:typename:protoreflect.FileDescriptor
+GetAllProducts	productpb/product.pb.go	/^	GetAllProducts(*Empty, ProductInfo_GetAllProductsServer) error$/;"	n	interface:productpb.ProductInfoServer	typeref:typename:error
+GetAllProducts	productpb/product.pb.go	/^	GetAllProducts(ctx context.Context, in *Empty, opts ...grpc.CallOption) (ProductInfo_GetAllProd/;"	n	interface:productpb.ProductInfoClient	typeref:typename:(ProductInfo_GetAllProductsClient, error)
+GetAllProducts	productpb/product.pb.go	/^func (*UnimplementedProductInfoServer) GetAllProducts(*Empty, ProductInfo_GetAllProductsServer) /;"	f	struct:productpb.UnimplementedProductInfoServer	typeref:typename:error
+GetAllProducts	productpb/product.pb.go	/^func (c *productInfoClient) GetAllProducts(ctx context.Context, in *Empty, opts ...grpc.CallOpti/;"	f	struct:productpb.productInfoClient	typeref:typename:(ProductInfo_GetAllProductsClient, error)
+GetAllProducts	service.go	/^func (s *ProductInfoServer) GetAllProducts(empty *pb.Empty, stream pb.ProductInfo_GetAllProducts/;"	f	struct:main.ProductInfoServer	typeref:typename:error
 GetDescription	productpb/product.pb.go	/^func (x *Product) GetDescription() string {$/;"	f	struct:productpb.Product	typeref:typename:string
 GetId	productpb/product.pb.go	/^func (x *Product) GetId() string {$/;"	f	struct:productpb.Product	typeref:typename:string
 GetName	productpb/product.pb.go	/^func (x *Product) GetName() string {$/;"	f	struct:productpb.Product	typeref:typename:string
@@ -24,6 +42,7 @@ GetProduct	productpb/product.pb.go	/^	GetProduct(ctx context.Context, in *Produc
 GetProduct	productpb/product.pb.go	/^func (*UnimplementedProductInfoServer) GetProduct(context.Context, *ProductID) (*Product, error)/;"	f	struct:productpb.UnimplementedProductInfoServer	typeref:typename:(*Product, error)
 GetProduct	productpb/product.pb.go	/^func (c *productInfoClient) GetProduct(ctx context.Context, in *ProductID, opts ...grpc.CallOpti/;"	f	struct:productpb.productInfoClient	typeref:typename:(*Product, error)
 GetProduct	service.go	/^func (s *ProductInfoServer) GetProduct(ctx context.Context, in *pb.ProductID) (*pb.Product, erro/;"	f	struct:main.ProductInfoServer	typeref:typename:(*pb.Product, error)
+GetProductIDs	productpb/product.pb.go	/^func (x *ProductIDs) GetProductIDs() []*ProductID {$/;"	f	struct:productpb.ProductIDs	typeref:typename:[]*ProductID
 GetValue	productpb/product.pb.go	/^func (x *ProductID) GetValue() string {$/;"	f	struct:productpb.ProductID	typeref:typename:string
 Id	productpb/product.pb.go	/^	Id          string  `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`$/;"	m	struct:productpb.Product	typeref:typename:string
 Name	productpb/product.pb.go	/^	Name        string  `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`$/;"	m	struct:productpb.Product	typeref:typename:string
@@ -34,26 +53,55 @@ Product	productpb/product.pb.go	/^type Product struct {$/;"	s	package:productpb
 Product	productpb/product.proto	/^message Product {$/;"	m
 ProductID	productpb/product.pb.go	/^type ProductID struct {$/;"	s	package:productpb
 ProductID	productpb/product.proto	/^message ProductID {$/;"	m
+ProductIDs	productpb/product.pb.go	/^	ProductIDs []*ProductID `protobuf:"bytes,1,rep,name=productIDs,proto3" json:"productIDs,omitemp/;"	m	struct:productpb.ProductIDs	typeref:typename:[]*ProductID
+ProductIDs	productpb/product.pb.go	/^type ProductIDs struct {$/;"	s	package:productpb
+ProductIDs	productpb/product.proto	/^message ProductIDs {$/;"	m
 ProductInfo	productpb/product.proto	/^service ProductInfo {$/;"	s
 ProductInfoClient	productpb/product.pb.go	/^type ProductInfoClient interface {$/;"	i	package:productpb
 ProductInfoServer	productpb/product.pb.go	/^type ProductInfoServer interface {$/;"	i	package:productpb
 ProductInfoServer	service.go	/^type ProductInfoServer struct {$/;"	s	package:main
+ProductInfo_AddAllProductsClient	productpb/product.pb.go	/^type ProductInfo_AddAllProductsClient interface {$/;"	i	package:productpb
+ProductInfo_AddAllProductsServer	productpb/product.pb.go	/^type ProductInfo_AddAllProductsServer interface {$/;"	i	package:productpb
+ProductInfo_GetAllProductsClient	productpb/product.pb.go	/^type ProductInfo_GetAllProductsClient interface {$/;"	i	package:productpb
+ProductInfo_GetAllProductsServer	productpb/product.pb.go	/^type ProductInfo_GetAllProductsServer interface {$/;"	i	package:productpb
+ProtoMessage	productpb/product.pb.go	/^func (*Empty) ProtoMessage() {}$/;"	f	struct:productpb.Empty
 ProtoMessage	productpb/product.pb.go	/^func (*Product) ProtoMessage() {}$/;"	f	struct:productpb.Product
 ProtoMessage	productpb/product.pb.go	/^func (*ProductID) ProtoMessage() {}$/;"	f	struct:productpb.ProductID
+ProtoMessage	productpb/product.pb.go	/^func (*ProductIDs) ProtoMessage() {}$/;"	f	struct:productpb.ProductIDs
+ProtoReflect	productpb/product.pb.go	/^func (x *Empty) ProtoReflect() protoreflect.Message {$/;"	f	struct:productpb.Empty	typeref:typename:protoreflect.Message
 ProtoReflect	productpb/product.pb.go	/^func (x *Product) ProtoReflect() protoreflect.Message {$/;"	f	struct:productpb.Product	typeref:typename:protoreflect.Message
 ProtoReflect	productpb/product.pb.go	/^func (x *ProductID) ProtoReflect() protoreflect.Message {$/;"	f	struct:productpb.ProductID	typeref:typename:protoreflect.Message
+ProtoReflect	productpb/product.pb.go	/^func (x *ProductIDs) ProtoReflect() protoreflect.Message {$/;"	f	struct:productpb.ProductIDs	typeref:typename:protoreflect.Message
+Recv	productpb/product.pb.go	/^	Recv() (*Product, error)$/;"	n	interface:productpb.ProductInfo_AddAllProductsServer	typeref:typename:(*Product, error)
+Recv	productpb/product.pb.go	/^	Recv() (*Product, error)$/;"	n	interface:productpb.ProductInfo_GetAllProductsClient	typeref:typename:(*Product, error)
+Recv	productpb/product.pb.go	/^func (x *productInfoAddAllProductsServer) Recv() (*Product, error) {$/;"	f	struct:productpb.productInfoAddAllProductsServer	typeref:typename:(*Product, error)
+Recv	productpb/product.pb.go	/^func (x *productInfoGetAllProductsClient) Recv() (*Product, error) {$/;"	f	struct:productpb.productInfoGetAllProductsClient	typeref:typename:(*Product, error)
 RegisterProductInfoServer	productpb/product.pb.go	/^func RegisterProductInfoServer(s *grpc.Server, srv ProductInfoServer) {$/;"	f	package:productpb
+Reset	productpb/product.pb.go	/^func (x *Empty) Reset() {$/;"	f	struct:productpb.Empty
 Reset	productpb/product.pb.go	/^func (x *Product) Reset() {$/;"	f	struct:productpb.Product
 Reset	productpb/product.pb.go	/^func (x *ProductID) Reset() {$/;"	f	struct:productpb.ProductID
+Reset	productpb/product.pb.go	/^func (x *ProductIDs) Reset() {$/;"	f	struct:productpb.ProductIDs
+Send	productpb/product.pb.go	/^	Send(*Product) error$/;"	n	interface:productpb.ProductInfo_AddAllProductsClient	typeref:typename:error
+Send	productpb/product.pb.go	/^	Send(*Product) error$/;"	n	interface:productpb.ProductInfo_GetAllProductsServer	typeref:typename:error
+Send	productpb/product.pb.go	/^func (x *productInfoAddAllProductsClient) Send(m *Product) error {$/;"	f	struct:productpb.productInfoAddAllProductsClient	typeref:typename:error
+Send	productpb/product.pb.go	/^func (x *productInfoGetAllProductsServer) Send(m *Product) error {$/;"	f	struct:productpb.productInfoGetAllProductsServer	typeref:typename:error
+SendAndClose	productpb/product.pb.go	/^	SendAndClose(*ProductIDs) error$/;"	n	interface:productpb.ProductInfo_AddAllProductsServer	typeref:typename:error
+SendAndClose	productpb/product.pb.go	/^func (x *productInfoAddAllProductsServer) SendAndClose(m *ProductIDs) error {$/;"	f	struct:productpb.productInfoAddAllProductsServer	typeref:typename:error
+ServerStream	productpb/product.pb.go	/^	grpc.ServerStream$/;"	M	struct:productpb.productInfoAddAllProductsServer	typeref:typename:grpc.ServerStream
+ServerStream	productpb/product.pb.go	/^	grpc.ServerStream$/;"	M	struct:productpb.productInfoGetAllProductsServer	typeref:typename:grpc.ServerStream
+String	productpb/product.pb.go	/^func (x *Empty) String() string {$/;"	f	struct:productpb.Empty	typeref:typename:string
 String	productpb/product.pb.go	/^func (x *Product) String() string {$/;"	f	struct:productpb.Product	typeref:typename:string
 String	productpb/product.pb.go	/^func (x *ProductID) String() string {$/;"	f	struct:productpb.ProductID	typeref:typename:string
+String	productpb/product.pb.go	/^func (x *ProductIDs) String() string {$/;"	f	struct:productpb.ProductIDs	typeref:typename:string
 UnimplementedProductInfoServer	productpb/product.pb.go	/^type UnimplementedProductInfoServer struct {$/;"	s	package:productpb
 Value	productpb/product.pb.go	/^	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`$/;"	m	struct:productpb.ProductID	typeref:typename:string
 _	productpb/product.pb.go	/^	_ = protoimpl.EnforceVersion(20 - protoimpl.MinVersion)$/;"	c	package:productpb
 _	productpb/product.pb.go	/^	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)$/;"	c	package:productpb
 _	productpb/product.pb.go	/^const _ = grpc.SupportPackageIsVersion6$/;"	c	package:productpb
 _	productpb/product.pb.go	/^const _ = proto.ProtoPackageIsVersion4$/;"	c	package:productpb
+_ProductInfo_AddAllProducts_Handler	productpb/product.pb.go	/^func _ProductInfo_AddAllProducts_Handler(srv interface{}, stream grpc.ServerStream) error {$/;"	f	package:productpb	typeref:typename:error
 _ProductInfo_AddProduct_Handler	productpb/product.pb.go	/^func _ProductInfo_AddProduct_Handler(srv interface{}, ctx context.Context, dec func(interface{})/;"	f	package:productpb	typeref:typename:(interface{}, error)
+_ProductInfo_GetAllProducts_Handler	productpb/product.pb.go	/^func _ProductInfo_GetAllProducts_Handler(srv interface{}, stream grpc.ServerStream) error {$/;"	f	package:productpb	typeref:typename:error
 _ProductInfo_GetProduct_Handler	productpb/product.pb.go	/^func _ProductInfo_GetProduct_Handler(srv interface{}, ctx context.Context, dec func(interface{})/;"	f	package:productpb	typeref:typename:(interface{}, error)
 _ProductInfo_serviceDesc	productpb/product.pb.go	/^var _ProductInfo_serviceDesc = grpc.ServiceDesc{$/;"	v	package:productpb
 cc	productpb/product.pb.go	/^	cc grpc.ClientConnInterface$/;"	m	struct:productpb.productInfoClient	typeref:typename:grpc.ClientConnInterface
@@ -62,19 +110,25 @@ context	productpb/product.pb.go	/^	context "context"$/;"	P	package:context
 file_productpb_product_proto_depIdxs	productpb/product.pb.go	/^var file_productpb_product_proto_depIdxs = []int32{$/;"	v	package:productpb
 file_productpb_product_proto_goTypes	productpb/product.pb.go	/^var file_productpb_product_proto_goTypes = []interface{}{$/;"	v	package:productpb
 file_productpb_product_proto_init	productpb/product.pb.go	/^func file_productpb_product_proto_init() {$/;"	f	package:productpb
-file_productpb_product_proto_msgTypes	productpb/product.pb.go	/^var file_productpb_product_proto_msgTypes = make([]protoimpl.MessageInfo, 2)$/;"	v	package:productpb
+file_productpb_product_proto_msgTypes	productpb/product.pb.go	/^var file_productpb_product_proto_msgTypes = make([]protoimpl.MessageInfo, 4)$/;"	v	package:productpb
 file_productpb_product_proto_rawDesc	productpb/product.pb.go	/^var file_productpb_product_proto_rawDesc = []byte{$/;"	v	package:productpb
 file_productpb_product_proto_rawDescData	productpb/product.pb.go	/^	file_productpb_product_proto_rawDescData = file_productpb_product_proto_rawDesc$/;"	v	package:productpb
 file_productpb_product_proto_rawDescGZIP	productpb/product.pb.go	/^func file_productpb_product_proto_rawDescGZIP() []byte {$/;"	f	package:productpb	typeref:typename:[]byte
 file_productpb_product_proto_rawDescOnce	productpb/product.pb.go	/^	file_productpb_product_proto_rawDescOnce sync.Once$/;"	v	package:productpb	typeref:typename:sync.Once
 grpc	productpb/product.pb.go	/^	grpc "google.golang.org\/grpc"$/;"	P	package:google.golang.org/grpc
+ids	service.go	/^	ids int$/;"	v	package:main	typeref:typename:int
 init	productpb/product.pb.go	/^func init() { file_productpb_product_proto_init() }$/;"	f	package:productpb
 main	main.go	/^func main() {$/;"	f	package:main
 main	main.go	/^package main$/;"	p
 main	service.go	/^package main$/;"	p
 pb	main.go	/^	pb "github.com\/ronaldoafonso\/productinfo\/productpb"$/;"	P	package:github.com/ronaldoafonso/productinfo/productpb
 pb	service.go	/^	pb "github.com\/ronaldoafonso\/productinfo\/productpb"$/;"	P	package:github.com/ronaldoafonso/productinfo/productpb
+productIDs	productpb/product.proto	/^    repeated ProductID productIDs = 1;$/;"	f
+productInfoAddAllProductsClient	productpb/product.pb.go	/^type productInfoAddAllProductsClient struct {$/;"	s	package:productpb
+productInfoAddAllProductsServer	productpb/product.pb.go	/^type productInfoAddAllProductsServer struct {$/;"	s	package:productpb
 productInfoClient	productpb/product.pb.go	/^type productInfoClient struct {$/;"	s	package:productpb
+productInfoGetAllProductsClient	productpb/product.pb.go	/^type productInfoGetAllProductsClient struct {$/;"	s	package:productpb
+productInfoGetAllProductsServer	productpb/product.pb.go	/^type productInfoGetAllProductsServer struct {$/;"	s	package:productpb
 productpb	productpb/product.pb.go	/^package productpb$/;"	p
 productpb	productpb/product.proto	/^package productpb;$/;"	p
 products	service.go	/^	products map[string]*pb.Product$/;"	m	struct:main.ProductInfoServer	typeref:typename:map[string]*pb.Product
@@ -82,11 +136,17 @@ proto	productpb/product.pb.go	/^	proto "github.com\/golang\/protobuf\/proto"$/;"
 protoimpl	productpb/product.pb.go	/^	protoimpl "google.golang.org\/protobuf\/runtime\/protoimpl"$/;"	P	package:google.golang.org/protobuf/runtime/protoimpl
 protoreflect	productpb/product.pb.go	/^	protoreflect "google.golang.org\/protobuf\/reflect\/protoreflect"$/;"	P	package:google.golang.org/protobuf/reflect/protoreflect
 reflect	productpb/product.pb.go	/^	reflect "reflect"$/;"	P	package:reflect
+sizeCache	productpb/product.pb.go	/^	sizeCache     protoimpl.SizeCache$/;"	m	struct:productpb.Empty	typeref:typename:protoimpl.SizeCache
 sizeCache	productpb/product.pb.go	/^	sizeCache     protoimpl.SizeCache$/;"	m	struct:productpb.Product	typeref:typename:protoimpl.SizeCache
 sizeCache	productpb/product.pb.go	/^	sizeCache     protoimpl.SizeCache$/;"	m	struct:productpb.ProductID	typeref:typename:protoimpl.SizeCache
+sizeCache	productpb/product.pb.go	/^	sizeCache     protoimpl.SizeCache$/;"	m	struct:productpb.ProductIDs	typeref:typename:protoimpl.SizeCache
+state	productpb/product.pb.go	/^	state         protoimpl.MessageState$/;"	m	struct:productpb.Empty	typeref:typename:protoimpl.MessageState
 state	productpb/product.pb.go	/^	state         protoimpl.MessageState$/;"	m	struct:productpb.Product	typeref:typename:protoimpl.MessageState
 state	productpb/product.pb.go	/^	state         protoimpl.MessageState$/;"	m	struct:productpb.ProductID	typeref:typename:protoimpl.MessageState
+state	productpb/product.pb.go	/^	state         protoimpl.MessageState$/;"	m	struct:productpb.ProductIDs	typeref:typename:protoimpl.MessageState
 status	productpb/product.pb.go	/^	status "google.golang.org\/grpc\/status"$/;"	P	package:google.golang.org/grpc/status
 sync	productpb/product.pb.go	/^	sync "sync"$/;"	P	package:sync
+unknownFields	productpb/product.pb.go	/^	unknownFields protoimpl.UnknownFields$/;"	m	struct:productpb.Empty	typeref:typename:protoimpl.UnknownFields
 unknownFields	productpb/product.pb.go	/^	unknownFields protoimpl.UnknownFields$/;"	m	struct:productpb.Product	typeref:typename:protoimpl.UnknownFields
 unknownFields	productpb/product.pb.go	/^	unknownFields protoimpl.UnknownFields$/;"	m	struct:productpb.ProductID	typeref:typename:protoimpl.UnknownFields
+unknownFields	productpb/product.pb.go	/^	unknownFields protoimpl.UnknownFields$/;"	m	struct:productpb.ProductIDs	typeref:typename:protoimpl.UnknownFields
