@@ -12,6 +12,7 @@ ENV CGO_ENABLED 0
 WORKDIR /go
 
 RUN go get -v -u google.golang.org/grpc && \
+    go get -v -u google.golang.org/grpc/reflection && \
     go get -v -u github.com/golang/protobuf/protoc-gen-go && \
     go get golang.org/x/lint/golint
 

@@ -10,7 +10,8 @@ import (
 )
 
 var (
-	ids int
+	ids      int
+	products map[string]*pb.Product
 )
 
 type ProductInfoServer struct {
@@ -18,6 +19,7 @@ type ProductInfoServer struct {
 }
 
 func (s *ProductInfoServer) AddProduct(ctx context.Context, in *pb.Product) (*pb.ProductID, error) {
+	s.products = NewProductInfoServer()
 	ids++
 	in.Id = "id" + strconv.Itoa(ids)
 	s.products[in.Id] = in
@@ -62,8 +64,9 @@ func (s *ProductInfoServer) GetAllProducts(empty *pb.Empty, stream pb.ProductInf
 	return nil
 }
 
-func NewProductInfoServer() *ProductInfoServer {
-	return &ProductInfoServer{
-		products: make(map[string]*pb.Product),
+func NewProductInfoServer() map[string]*pb.Product {
+	if products == nil {
+		products = make(map[string]*pb.Product)
 	}
+	return products
 }

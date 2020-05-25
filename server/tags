@@ -93,6 +93,7 @@ String	productpb/product.pb.go	/^func (x *Empty) String() string {$/;"	f	struct:
 String	productpb/product.pb.go	/^func (x *Product) String() string {$/;"	f	struct:productpb.Product	typeref:typename:string
 String	productpb/product.pb.go	/^func (x *ProductID) String() string {$/;"	f	struct:productpb.ProductID	typeref:typename:string
 String	productpb/product.pb.go	/^func (x *ProductIDs) String() string {$/;"	f	struct:productpb.ProductIDs	typeref:typename:string
+TestAddProduct	service_test.go	/^func TestAddProduct(t *testing.T) {$/;"	f	package:main
 UnimplementedProductInfoServer	productpb/product.pb.go	/^type UnimplementedProductInfoServer struct {$/;"	s	package:productpb
 Value	productpb/product.pb.go	/^	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`$/;"	m	struct:productpb.ProductID	typeref:typename:string
 _	productpb/product.pb.go	/^	_ = protoimpl.EnforceVersion(20 - protoimpl.MinVersion)$/;"	c	package:productpb
@@ -121,8 +122,10 @@ init	productpb/product.pb.go	/^func init() { file_productpb_product_proto_init()
 main	main.go	/^func main() {$/;"	f	package:main
 main	main.go	/^package main$/;"	p
 main	service.go	/^package main$/;"	p
+main	service_test.go	/^package main$/;"	p
 pb	main.go	/^	pb "github.com\/ronaldoafonso\/productinfo\/productpb"$/;"	P	package:github.com/ronaldoafonso/productinfo/productpb
 pb	service.go	/^	pb "github.com\/ronaldoafonso\/productinfo\/productpb"$/;"	P	package:github.com/ronaldoafonso/productinfo/productpb
+pb	service_test.go	/^	pb "github.com\/ronaldoafonso\/productinfo\/productpb"$/;"	P	package:github.com/ronaldoafonso/productinfo/productpb
 productIDs	productpb/product.proto	/^    repeated ProductID productIDs = 1;$/;"	f
 productInfoAddAllProductsClient	productpb/product.pb.go	/^type productInfoAddAllProductsClient struct {$/;"	s	package:productpb
 productInfoAddAllProductsServer	productpb/product.pb.go	/^type productInfoAddAllProductsServer struct {$/;"	s	package:productpb
