@@ -5,7 +5,7 @@ services:
   productinfo:
     build:
       context: .
-    image: productinfo:1.0.1
+    image: productinfo:1.0.2
     volumes:
       - type: bind
         source: .

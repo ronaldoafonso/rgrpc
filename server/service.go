@@ -11,7 +11,7 @@ import (
 
 var (
 	ids      int
-	products map[string]*pb.Product
+	products map[string]*pb.Product = make(map[string]*pb.Product)
 )
 
 type ProductInfoServer struct {
@@ -19,7 +19,7 @@ type ProductInfoServer struct {
 }
 
 func (s *ProductInfoServer) AddProduct(ctx context.Context, in *pb.Product) (*pb.ProductID, error) {
-	s.products = NewProductInfoServer()
+	s.products = products
 	ids++
 	in.Id = "id" + strconv.Itoa(ids)
 	s.products[in.Id] = in
@@ -29,6 +29,7 @@ func (s *ProductInfoServer) AddProduct(ctx context.Context, in *pb.Product) (*pb
 }
 
 func (s *ProductInfoServer) GetProduct(ctx context.Context, in *pb.ProductID) (*pb.Product, error) {
+	s.products = products
 	if product, ok := s.products[in.Value]; ok {
 		return product, nil
 	}
@@ -36,6 +37,7 @@ func (s *ProductInfoServer) GetProduct(ctx context.Context, in *pb.ProductID) (*
 }
 
 func (s *ProductInfoServer) AddAllProducts(stream pb.ProductInfo_AddAllProductsServer) error {
+	s.products = products
 	productIDs := []*pb.ProductID{}
 	for {
 		if product, err := stream.Recv(); err != nil {
@@ -55,6 +57,7 @@ func (s *ProductInfoServer) AddAllProducts(stream pb.ProductInfo_AddAllProductsS
 }
 
 func (s *ProductInfoServer) GetAllProducts(empty *pb.Empty, stream pb.ProductInfo_GetAllProductsServer) error {
+	s.products = products
 	for key, value := range s.products {
 		if err := stream.Send(value); err != nil {
 			log.Printf("Error getting product: %v (%v).", key, err)
@@ -62,11 +65,4 @@ func (s *ProductInfoServer) GetAllProducts(empty *pb.Empty, stream pb.ProductInf
 		}
 	}
 	return nil
-}
-
-func NewProductInfoServer() map[string]*pb.Product {
-	if products == nil {
-		products = make(map[string]*pb.Product)
-	}
-	return products
 }
